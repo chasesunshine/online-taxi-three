@@ -2,14 +2,18 @@ spring:
   application:
     name: cloud-eureka
 eureka:
+  instance:
+#    prefer-ip-address: true
+#    appname: cloud-eureka
+
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
-      defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/,http://localhost:7902/eureka/
+      defaultZone: http://eureka-7900:7900/eureka/,http://eureka-7901:7901/eureka/,http://eureka-7902:7902/eureka/
   server:
     # 自我保护看自己情况
-    enable-self-preservation: false
+    enable-self-preservation: true
     # 续约阈值，和自我保护相关
     renewal-percent-threshold: 0.85
     # server剔除过期服务的时间间隔
